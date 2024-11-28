@@ -17,14 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        let contentView = ContentView(viewModel: ContentViewModel())
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let rootVC = UIHostingController(rootView: contentView)
         
-        let navigationManager = NavigationManager.shared.setRootVC(rootVC: rootVC)
+        let navigationManager = NavigationManager.shared.setRootVC(rootVC: rootVC1)
         
-        print("*** \(rootVC.navigationController)")
         window.rootViewController = navigationManager
         self.window = window
         window.makeKeyAndVisible()

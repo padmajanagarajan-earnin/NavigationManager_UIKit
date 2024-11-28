@@ -1,0 +1,58 @@
+{
+    "id": "CashoutWheel",
+    "presentationStyle": "push",
+    "children": [
+        {
+            "id": "TransferSpeedSelection",
+            "presentationStyle": "push",
+            "children": [
+                {
+                    "id": "NoTipDefaults",
+                    "presentationStyle": "push",
+                    "children": [
+                        {
+                            "id": "Confirmation",
+                            "presentationStyle": "push",
+                            "children": [
+                                {
+                                    "id": "Summary",
+                                    "presentationStyle": "push",
+                                    "children": [
+                                        {
+                                            "id": "CrossSell",
+                                            "presentationStyle": "push",
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "NoTipDefaults",
+            "presentationStyle": "push",
+            "children": [
+                {
+                    "id": "Confirmation",
+                    "presentationStyle": "push",
+                    "children": [
+                        {
+                            "id": "Summary",
+                            "presentationStyle": "push",
+                            "children": [
+                                {
+                                    "id": "CrossSell",
+                                    "presentationStyle": "push",
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

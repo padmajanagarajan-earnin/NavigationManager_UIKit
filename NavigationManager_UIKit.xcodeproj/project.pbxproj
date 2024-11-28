@@ -17,6 +17,8 @@
 		576E0A9D2CF769F400033AB9 /* NavigationManager_UIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0A9C2CF769F400033AB9 /* NavigationManager_UIKitUITestsLaunchTests.swift */; };
 		576E0AAA2CF76C7800033AB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AA92CF76C7800033AB9 /* SceneDelegate.swift */; };
 		576E0AB32CF80EB000033AB9 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AB22CF80EB000033AB9 /* NavigationManager.swift */; };
+		576E0AB52CF8C22900033AB9 /* nodeGraph.json in Resources */ = {isa = PBXBuildFile; fileRef = 576E0AB42CF8C22900033AB9 /* nodeGraph.json */; };
+		576E0AB72CF8D2A600033AB9 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AB62CF8D2A600033AB9 /* TreeNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		576E0A9C2CF769F400033AB9 /* NavigationManager_UIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager_UIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		576E0AA92CF76C7800033AB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		576E0AB22CF80EB000033AB9 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		576E0AB42CF8C22900033AB9 /* nodeGraph.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nodeGraph.json; sourceTree = "<group>"; };
+		576E0AB62CF8D2A600033AB9 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				576E0AB22CF80EB000033AB9 /* NavigationManager.swift */,
+				576E0AB42CF8C22900033AB9 /* nodeGraph.json */,
+				576E0AB62CF8D2A600033AB9 /* TreeNode.swift */,
 			);
 			path = NavigationManager;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 			files = (
 				576E0A862CF769F400033AB9 /* LaunchScreen.storyboard in Resources */,
 				576E0A832CF769F400033AB9 /* Assets.xcassets in Resources */,
+				576E0AB52CF8C22900033AB9 /* nodeGraph.json in Resources */,
 				576E0A812CF769F200033AB9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +279,7 @@
 				576E0A7E2CF769F200033AB9 /* ContentView.swift in Sources */,
 				576E0AB32CF80EB000033AB9 /* NavigationManager.swift in Sources */,
 				576E0A7A2CF769F200033AB9 /* AppDelegate.swift in Sources */,
+				576E0AB72CF8D2A600033AB9 /* TreeNode.swift in Sources */,
 				576E0AAA2CF76C7800033AB9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
