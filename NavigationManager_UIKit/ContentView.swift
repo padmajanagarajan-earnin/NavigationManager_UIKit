@@ -8,8 +8,13 @@
 import UIKit
 import SwiftUI
 
-struct ContentView1: View {
+struct ContentView1: View, NavigableView {
     @ObservedObject var viewModel: ContentViewModel1
+    
+    init(viewModel: ContentViewModel1) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         VStack {
             Text(viewModel.title)
@@ -17,28 +22,69 @@ struct ContentView1: View {
                     viewModel.didTapPrimaryButton()
                 }
         }
-        .navigationTitle("Super!")
+        .navigationTitle("Super 1!")
     }
 }
-struct ContentView2: View {
+
+class ContentViewModel1: ObservableObject, NavigableViewModel {
+    let id: String
+    
+    required init(node: NavigationNode) {
+        self.id = node.id
+    }
+    
+    @Published var title: String = "Hello World 167!"
+    
+    func didTapPrimaryButton() {
+        NavigationManager.shared.navigateTo(id: 2, presentationStyle: .push)
+    }
+}
+
+// MARK: Views
+struct ContentView2: View, NavigableView {
     @ObservedObject var viewModel: ContentViewModel2
     var body: some View {
         VStack {
             Text(viewModel.title)
         }
-        .navigationTitle("Super!")
+        .navigationTitle("Super 2!")
     }
 }
-struct ContentView3: View {
+struct ContentView3: View, NavigableView {
     @ObservedObject var viewModel: ContentViewModel3
     var body: some View {
         VStack {
             Text(viewModel.title)
         }
-        .navigationTitle("Super!")
+        .navigationTitle("Super 3!")
     }
 }
-struct ContentView4: View {
+
+class ContentViewModel2: ObservableObject, NavigableViewModel {
+    var id: String
+    required init(node: NavigationNode) {
+        self.id = node.id
+    }
+
+    @Published var title: String = "Hello World 2!"
+}
+
+class ContentViewModel3: ObservableObject, NavigableViewModel {
+    var id: String
+    required init(node: NavigationNode) {
+        self.id = node.id
+    }
+
+    @Published var title: String = "Hello World 3!"
+}
+
+
+/// ************************************************************
+/// ************************************************************
+/// ************************************************************
+/// ************************************************************
+
+/* struct ContentView4: View {
     @ObservedObject var viewModel: ContentViewModel4
     var body: some View {
         VStack {
@@ -86,24 +132,6 @@ struct ContentView8: View {
     }
 }
 
-class ContentViewModel1: ObservableObject {
-    @Published var title: String = "Hello World1!"
-    static var id = "1"
-    
-    func didTapPrimaryButton() {
-        NavigationManager.shared.navigateTo(id: 2, presentationStyle: .push)
-    }
-}
-
-class ContentViewModel2: ObservableObject {
-    @Published var title: String = "Hello World2!"
-    static var id = "2"
-}
-
-class ContentViewModel3: ObservableObject {
-    @Published var title: String = "Hello World3!"
-}
-
 class ContentViewModel4: ObservableObject {
     @Published var title: String = "Hello World4!"
 }
@@ -123,20 +151,10 @@ class ContentViewModel8: ObservableObject {
     @Published var title: String = "Hello World8!"
 }
 
-let contentView1 = ContentView1(viewModel: ContentViewModel1())
-let contentView2 = ContentView2(viewModel: ContentViewModel2())
-let contentView3 = ContentView3(viewModel: ContentViewModel3())
 let contentView4 = ContentView4(viewModel: ContentViewModel4())
 let contentView5 = ContentView5(viewModel: ContentViewModel5())
 let contentView6 = ContentView6(viewModel: ContentViewModel6())
 let contentView7 = ContentView7(viewModel: ContentViewModel7())
 let contentView8 = ContentView8(viewModel: ContentViewModel8())
+*/
 
-let rootVC1 = UIHostingController(rootView: contentView1)
-let vc2 = UIHostingController(rootView: contentView2)
-let vc3 = UIHostingController(rootView: contentView3)
-let vc4 = UIHostingController(rootView: contentView4)
-let vc5 = UIHostingController(rootView: contentView5)
-let vc6 = UIHostingController(rootView: contentView6)
-let vc7 = UIHostingController(rootView: contentView7)
-let vc8 = UIHostingController(rootView: contentView8)

@@ -19,6 +19,7 @@
 		576E0AB32CF80EB000033AB9 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AB22CF80EB000033AB9 /* NavigationManager.swift */; };
 		576E0AB52CF8C22900033AB9 /* nodeGraph.json in Resources */ = {isa = PBXBuildFile; fileRef = 576E0AB42CF8C22900033AB9 /* nodeGraph.json */; };
 		576E0AB72CF8D2A600033AB9 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AB62CF8D2A600033AB9 /* TreeNode.swift */; };
+		576E0AB92CF8F55100033AB9 /* NodeToViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E0AB82CF8F55100033AB9 /* NodeToViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		576E0AB22CF80EB000033AB9 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		576E0AB42CF8C22900033AB9 /* nodeGraph.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nodeGraph.json; sourceTree = "<group>"; };
 		576E0AB62CF8D2A600033AB9 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		576E0AB82CF8F55100033AB9 /* NodeToViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeToViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				576E0AB22CF80EB000033AB9 /* NavigationManager.swift */,
 				576E0AB42CF8C22900033AB9 /* nodeGraph.json */,
 				576E0AB62CF8D2A600033AB9 /* TreeNode.swift */,
+				576E0AB82CF8F55100033AB9 /* NodeToViewConfiguration.swift */,
 			);
 			path = NavigationManager;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			files = (
 				576E0A7E2CF769F200033AB9 /* ContentView.swift in Sources */,
 				576E0AB32CF80EB000033AB9 /* NavigationManager.swift in Sources */,
+				576E0AB92CF8F55100033AB9 /* NodeToViewConfiguration.swift in Sources */,
 				576E0A7A2CF769F200033AB9 /* AppDelegate.swift in Sources */,
 				576E0AB72CF8D2A600033AB9 /* TreeNode.swift in Sources */,
 				576E0AAA2CF76C7800033AB9 /* SceneDelegate.swift in Sources */,

@@ -7,12 +7,13 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class NavigationManager {
 
     static var shared = NavigationManager()
     private var navigationController = UINavigationController()
-    private var rootNode: Node
+    var rootViewController: UIViewController?
 
     private init() {
         loadConfiguration(from: "nodeGraph")
@@ -28,30 +29,28 @@ final class NavigationManager {
             let jsonFile = Bundle.main.url(forResource: jsonFile, withExtension: "json"),
             let data = try? Data(contentsOf: jsonFile)
         else { return }
-        do {
-            rootNode = try JSONDecoder().decode(Node.self, from: data)
-        }
-        catch {
-            print("incorrect json format")
-        }
-        
+        let rootNode = try? JSONDecoder().decode(NavigationNode.self, from: data)
+        let rootVC = UIHostingController(rootView: rootNode?.resolveView())
+        rootViewController = rootVC
+        print("** rootViewController\(String(describing: rootViewController))")
     }
 
+
     // home1 -> cashout2
-    func navigateTo(id: Int, presentationStyle: PresentationStyle) {
-        // if the node is a child
-        // home -> cashout -> home
-        switch presentationStyle {
-        case .push:
-            navigationController.pushViewController(vc2, animated: true)
-        default:
-            navigationController.pushViewController(vc8, animated: true)
-        }
-    }
+//    func navigateTo(id: Int, presentationStyle: PresentationStyle) {
+//        // if the node is a child
+//        // home -> cashout -> home
+//        switch presentationStyle {
+//        case .push:
+//            navigationController.pushViewController(vc, animated: true)
+//        default:
+//            navigationController.pushViewController(vc8, animated: true)
+//        }
+//    }
 
 }
 
-enum PresentationStyle {
+enum PresentationStyle: String, Decodable {
     case push
     case modalWithStack
     case singletonModal
