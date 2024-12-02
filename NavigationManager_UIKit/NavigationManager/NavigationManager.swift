@@ -10,18 +10,24 @@ import UIKit
 import SwiftUI
 
 final class NavigationManager {
+    
+    static var keyToViewMappings: [String: (any NavigableView.Type, any NavigableViewModel.Type)] =
+    [
+        "CashoutWheel": (CashoutWheelView.self, CashoutWheelViewModel.self),
+        "NoTipDefaults": (NoTipDefaultsView.self, NoTipDefaultsViewModel.self),
+        "CashoutConfirmation": (CashoutConfirmationView.self, CashoutConfirmationViewModel.self),
+        "Summary": (CashoutSummaryView.self, CashoutSummaryViewModel.self)
+    ]
 
     static var shared = NavigationManager()
-    private var navigationController = UINavigationController()
+    private var navigationController: UINavigationController
     var rootViewController: UIViewController?
+    var currentNode: NavigationNode?
+    var previousNode: NavigationNode?
 
     private init() {
+        navigationController = UINavigationController()
         loadConfiguration(from: "nodeGraph")
-    }
-    
-    func setRootVC(rootVC: UIViewController) -> UINavigationController {
-        navigationController.setViewControllers([rootVC], animated: true)
-        return navigationController
     }
     
     func loadConfiguration(from jsonFile: String) {
@@ -30,24 +36,24 @@ final class NavigationManager {
             let data = try? Data(contentsOf: jsonFile)
         else { return }
         let rootNode = try? JSONDecoder().decode(NavigationNode.self, from: data)
-        let rootVC = UIHostingController(rootView: rootNode?.resolveView())
-        rootViewController = rootVC
-        print("** rootViewController\(String(describing: rootViewController))")
+        currentNode = rootNode
+        previousNode = rootNode
+        let rootVC = UIHostingController(rootView: rootNode?.resolveViewAndViewModel()?.0)
+        navigationController.viewControllers = [rootVC]
+        rootViewController = navigationController
     }
-
-
-    // home1 -> cashout2
-//    func navigateTo(id: Int, presentationStyle: PresentationStyle) {
-//        // if the node is a child
-//        // home -> cashout -> home
-//        switch presentationStyle {
-//        case .push:
-//            navigationController.pushViewController(vc, animated: true)
-//        default:
-//            navigationController.pushViewController(vc8, animated: true)
-//        }
-//    }
-
+    
+    func navigateToNext() {
+        previousNode = currentNode
+        let nextNode = currentNode?.next()
+        currentNode = nextNode
+        let nextVC = UIHostingController(rootView: nextNode?.resolveViewAndViewModel()?.0)
+        navigationController.pushViewController(nextVC, animated: true)
+    }
+    
+    func back() {
+        navigationController.popViewController(animated: true)
+    }
 }
 
 enum PresentationStyle: String, Decodable {

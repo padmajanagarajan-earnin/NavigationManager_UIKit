@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "585FD64F-CA1B-4977-A817-6C029BF4E0D5"
+            uuid = "6A111D3B-C59D-4431-840A-5CDA969B071D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NavigationManager_UIKit/AppDelegate.swift"
+            filePath = "NavigationManager_UIKit/NavigationManager/NavigationManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "application(_:configurationForConnecting:options:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "navigateToNext()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

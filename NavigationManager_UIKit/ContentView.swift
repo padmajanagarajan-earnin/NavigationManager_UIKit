@@ -8,12 +8,8 @@
 import UIKit
 import SwiftUI
 
-struct ContentView1: View, NavigableView {
-    @ObservedObject var viewModel: ContentViewModel1
-    
-    init(viewModel: ContentViewModel1) {
-        self.viewModel = viewModel
-    }
+struct CashoutWheelView: View, NavigableView {
+    @ObservedObject var viewModel: CashoutWheelViewModel
 
     var body: some View {
         VStack {
@@ -22,63 +18,99 @@ struct ContentView1: View, NavigableView {
                     viewModel.didTapPrimaryButton()
                 }
         }
-        .navigationTitle("Super 1!")
+        .navigationTitle("CashoutWheel!")
     }
 }
 
-class ContentViewModel1: ObservableObject, NavigableViewModel {
+class CashoutWheelViewModel: ObservableObject, NavigableViewModel {
     let id: String
     
     required init(node: NavigationNode) {
         self.id = node.id
     }
     
-    @Published var title: String = "Hello World 167!"
+    @Published var title: String = "CashoutWheel!"
     
     func didTapPrimaryButton() {
-        NavigationManager.shared.navigateTo(id: 2, presentationStyle: .push)
+        NavigationManager.shared.navigateToNext()
     }
 }
 
 // MARK: Views
-struct ContentView2: View, NavigableView {
-    @ObservedObject var viewModel: ContentViewModel2
+struct NoTipDefaultsView: View, NavigableView {
+    @ObservedObject var viewModel: NoTipDefaultsViewModel
     var body: some View {
         VStack {
-            Text(viewModel.title)
+            Text(viewModel.title).onTapGesture {
+                viewModel.didTapPrimaryButton()
+            }
         }
-        .navigationTitle("Super 2!")
-    }
-}
-struct ContentView3: View, NavigableView {
-    @ObservedObject var viewModel: ContentViewModel3
-    var body: some View {
-        VStack {
-            Text(viewModel.title)
-        }
-        .navigationTitle("Super 3!")
+        .navigationTitle("NoTipDefaults!")
     }
 }
 
-class ContentViewModel2: ObservableObject, NavigableViewModel {
+class NoTipDefaultsViewModel: ObservableObject, NavigableViewModel {
     var id: String
     required init(node: NavigationNode) {
         self.id = node.id
     }
 
-    @Published var title: String = "Hello World 2!"
+    @Published var title: String = "NoTipDefaults!"
+
+    func didTapPrimaryButton() {
+        NavigationManager.shared.navigateToNext()
+    }
 }
 
-class ContentViewModel3: ObservableObject, NavigableViewModel {
+struct CashoutConfirmationView: View, NavigableView {
+    @ObservedObject var viewModel: CashoutConfirmationViewModel
+    var body: some View {
+        VStack {
+            Text(viewModel.title).onTapGesture {
+                viewModel.didTapPrimaryButton()
+            }
+        }
+        .navigationTitle("CashoutConfirmation!")
+    }
+}
+
+class CashoutConfirmationViewModel: ObservableObject, NavigableViewModel {
     var id: String
     required init(node: NavigationNode) {
         self.id = node.id
     }
 
-    @Published var title: String = "Hello World 3!"
+    @Published var title: String = "CashoutConfirmation!"
+    
+    func didTapPrimaryButton() {
+        NavigationManager.shared.navigateToNext()
+    }
 }
 
+struct CashoutSummaryView: View, NavigableView {
+    @ObservedObject var viewModel: CashoutSummaryViewModel
+    var body: some View {
+        VStack {
+            Text(viewModel.title).onTapGesture {
+                viewModel.didTapPrimaryButton()
+            }
+        }
+        .navigationTitle("CashoutSummary!")
+    }
+}
 
+class CashoutSummaryViewModel: ObservableObject, NavigableViewModel {
+    var id: String
+    required init(node: NavigationNode) {
+        self.id = node.id
+    }
+
+    @Published var title: String = "CashoutSummary!"
+    
+    func didTapPrimaryButton() {
+        NavigationManager.shared.navigateToNext()
+    }
+}
 /// ************************************************************
 /// ************************************************************
 /// ************************************************************
